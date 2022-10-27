@@ -16,6 +16,6 @@ SHOW TABLES;
 DESC Registration;
 
 INSERT INTO Registration VALUES
-('U001','Amayuru','Matugama','indeewara5678@gmail.com','+94769689591','123');
+('U001','Amayuru','Matugama','indeewara@','+94769689591','123');
 
-SELECT * FROM Registraion;
+SELECT * FROM Registration;
