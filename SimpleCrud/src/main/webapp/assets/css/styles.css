@@ -1,0 +1,49 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 27-Oct-2022, 10:53:13
+    Author     : indee
+*/
+body{
+    margin: 0;
+    padding: 0;
+/*    background: #fff;*/
+    font-family: 'Raleway', sans-serif;
+/*    color: #fff;*/
+}
+
+.banner{
+    height: 100vh;
+    width: 100%;
+/*    background: url('overlay.png'), url('banner.jpg');*/
+    background-position: top;
+    background-size: cover;
+/*    background-attachment: fixed;*/
+    background-repeat: no-repeat;
+}
+
+#box{
+    position: absolute;
+    top: 250px;
+    bottom: 0;
+    right: 680px;
+    left: 0;
+    color: white;
+}
+
+#box .info a{
+    margin-left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    background: #e91d43;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+#box > .info > a:hover{
+    background: #e91e63;
+}
