@@ -1,0 +1,6 @@
+com\mycompany\simplecrud\dao\RegistrationDao.class
+com\mycompany\simplecrud\controller\RegistrationServlet.class
+com\mycompany\simplecrud\db\DbConnection.class
+com\mycompany\simplecrud\dto\RegistrationDTO.class
+com\mycompany\simplecrud\model\Registration.class
+com\mycompany\simplecrud\bo\RegistrationBo.class

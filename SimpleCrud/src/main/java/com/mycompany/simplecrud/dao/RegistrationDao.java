@@ -7,6 +7,7 @@ package com.mycompany.simplecrud.dao;
 
 import com.mycompany.simplecrud.db.DbConnection;
 import com.mycompany.simplecrud.model.Registration;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -45,9 +46,9 @@ public class RegistrationDao {
     
     public ArrayList<Registration> getAllUser() throws ClassNotFoundException, SQLException{
        
-        DbConnection connection = null;
-        connection = new DbConnection();
-        PreparedStatement pstm = connection.getConnection().prepareStatement("select * from Registration");
+        Connection connection = null;
+        connection = new DbConnection().getConnection();
+        PreparedStatement pstm = connection.prepareStatement("select * from Registration");
         
         ResultSet rst = pstm.executeQuery();
         //System.out.println(rst.getObject(1));
@@ -63,7 +64,7 @@ public class RegistrationDao {
              );
              load.add(registration);
         }
-        connection.connection.close();
+        
         return load;
     } 
 }

@@ -5,15 +5,17 @@
  */
 package com.mycompany.simplecrud.controller;
 
-import com.mycompany.simplecrud.dao.RegistrationDao;
-import com.mycompany.simplecrud.model.Registration;
+import com.mycompany.simplecrud.bo.RegistrationBo;
+import com.mycompany.simplecrud.dto.RegistrationDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.ServletException;
+import javax.json.Json;
+import javax.json.JsonArrayBuilder;
+import javax.json.JsonObjectBuilder;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -25,27 +27,36 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "RegistrationServlet", urlPatterns = {"/Registration"})
 public class RegistrationServlet extends HttpServlet {
-//    create reference in DAO layer
-    private RegistrationDao registrationDao;
-    
-    public void init(){
-        registrationDao = new RegistrationDao();
-    }
+//    create reference in BO layer
+    private RegistrationBo registrationBo;
     
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException{
+        
+        resp.setContentType("application/json");
+        //resp.setCharacterEncoding("UTF-8");
+        
         try {
             //System.out.println("Amayuru");
             PrintWriter writer = resp.getWriter();
-            ArrayList<Registration> details = registrationDao.getAllUser();
-            //String data = new Gson(details);
-            resp.setContentType("application/json");
-            resp.setCharacterEncoding("UTF-8");
-            //writer.write(data);
+            JsonArrayBuilder arrayBuilder = Json.createArrayBuilder();
+                    
+            ArrayList<RegistrationDTO> details = registrationBo.getAllUser();
+            for (RegistrationDTO registrationDTO : details){
+                JsonObjectBuilder obj = Json.createObjectBuilder();
+                obj.add("userID", registrationDTO.getUserID());
+                obj.add("userName", registrationDTO.getUserName());
+                obj.add("address", registrationDTO.getAddress());
+                obj.add("email", registrationDTO.getEmail());
+                obj.add("contact", registrationDTO.getContact());
+                obj.add("password", registrationDTO.getPassword());
+                
+                arrayBuilder.add(obj.build());
+            }
+            
+            writer.print(arrayBuilder.build());
             //System.out.println(details);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(RegistrationServlet.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(RegistrationServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         
