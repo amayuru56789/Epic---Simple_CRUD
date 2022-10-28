@@ -23,8 +23,9 @@ public class DbConnection {
     }
     
     public Connection getConnection() throws ClassNotFoundException{
-        Class.forName("com.mysql.cj.jdbc.Driver");
+        
         try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/epic", "root", "1234");
            
         } catch (SQLException ex) {
