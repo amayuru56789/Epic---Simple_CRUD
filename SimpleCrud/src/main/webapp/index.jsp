@@ -13,7 +13,7 @@
             <div id="box">
                 <div class="col-md-8 offset-md-2 info">
                     <h1 class='text-center'>Welcome to Epic-Lanka Login page</h1>
-                    <a href="Login.jsp" class="btn btn-md text-center">Let's started</a>
+                    <a href="SignUp.jsp" class="btn btn-md text-center">Let's started</a>
                 </div>
             </div>
         </div>

@@ -8,6 +8,7 @@ package com.mycompany.simplecrud.bo;
 import com.mycompany.simplecrud.dao.RegistrationDao;
 import com.mycompany.simplecrud.dto.RegistrationDTO;
 import com.mycompany.simplecrud.model.Registration;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -17,9 +18,20 @@ import java.util.ArrayList;
  */
 public class RegistrationBo {
 
-    //    create reference in DAO layer
-    private RegistrationDao registrationDao;
+    //    create object in DAO layer
+    RegistrationDao registrationDao = new RegistrationDao();
 
+    public boolean registrationUser(RegistrationDTO registrationDTO) throws ClassNotFoundException{
+        return registrationDao.registerUser(new Registration(
+                registrationDTO.getUserID(),
+                registrationDTO.getUserName(),
+                registrationDTO.getAddress(),
+                registrationDTO.getEmail(),
+                registrationDTO.getContact(),
+                registrationDTO.getPassword()
+        ));
+    }
+    
     public ArrayList<RegistrationDTO> getAllUser() throws SQLException, ClassNotFoundException {
         ArrayList<Registration> all = registrationDao.getAllUser();
         ArrayList<RegistrationDTO> registrationList = new ArrayList<>();

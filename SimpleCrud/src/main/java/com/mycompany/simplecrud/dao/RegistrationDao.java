@@ -8,6 +8,7 @@ package com.mycompany.simplecrud.dao;
 import com.mycompany.simplecrud.db.DbConnection;
 import com.mycompany.simplecrud.model.Registration;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -22,11 +23,12 @@ import java.util.logging.Logger;
 public class RegistrationDao {
     
     public boolean registerUser(Registration registration) throws ClassNotFoundException{
-        DbConnection connection = null;
       
         try {
-            connection = new DbConnection();
-            PreparedStatement pstm = connection.getConnection().prepareStatement("insert into Registration values(?,?,?,?,?,?)");
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/epic", "root", "1234");
+            
+            PreparedStatement pstm = con.prepareStatement("insert into Registration values(?,?,?,?,?,?)");
             pstm.setObject(1, registration.getUserID());
             pstm.setObject(2, registration.getUserName());
             pstm.setObject(3, registration.getAddress());
@@ -45,10 +47,9 @@ public class RegistrationDao {
     }
     
     public ArrayList<Registration> getAllUser() throws ClassNotFoundException, SQLException{
-       
-        Connection connection = null;
-        connection = new DbConnection().getConnection();
-        PreparedStatement pstm = connection.prepareStatement("select * from Registration");
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/epic", "root", "1234");
+        PreparedStatement pstm = con.prepareStatement("select * from Registration");
         
         ResultSet rst = pstm.executeQuery();
         //System.out.println(rst.getObject(1));
@@ -67,4 +68,8 @@ public class RegistrationDao {
         
         return load;
     } 
+
+//    public boolean registerUser(Registration registration) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 }
