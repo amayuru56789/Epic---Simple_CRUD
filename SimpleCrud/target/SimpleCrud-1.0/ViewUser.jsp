@@ -27,6 +27,54 @@
                             <i class="bi bi-search m-2"></i>Search</button>
                     </div>
                 </div>
+                
+                <div class="row mb-3 ">
+      
+                <form id="user">
+                    <div class="col">
+                        <caption>user ID:</caption>
+                        <div class="col-4">
+                            <input id="txtUserId" class="form-control " type="text" name="userID">
+                        </div>
+                        <p><small id="lbluserid" class="text-danger p-1"></small></p>
+                    </div>
+                    <div class="col">
+                        <caption>user Name:</caption>
+                        <div class="col-4">
+                            <input id="txtUserName" class="form-control " type="text" name="userName">
+                        </div>
+                        <p><small id="lblusername" class="text-danger p-1"></small></p>
+                    </div>
+                    <div class="col">
+                        <caption>Address:</caption>
+                        <div class="col-4">
+                            <input id="txtUserAddress" class="form-control " type="text" name="userAddress">
+                        </div>
+                        <p><small id="lbluseraddress" class="text-danger p-1"></small></p>
+                    </div>
+                    <div class="col">
+                        <caption>Email:</caption>
+                        <div class="col-4">
+                            <input id="txtEmail" class="form-control " type="text" name="email">
+                        </div>
+                        <p><small id="lblemail" class="text-danger p-1"></small></p>
+                    </div>
+                    <div class="col">
+                        <caption>Email:</caption>
+                        <div class="col-4">
+                            <input id="txtContact" class="form-control " type="text" name="contact">
+                        </div>
+                        <p><small id="lblcontact" class="text-danger p-1"></small></p>
+                    </div>
+                    <div class="col">
+                        <caption>Password:</caption>
+                        <div class="col-4">
+                            <input id="txtPassword" class="form-control " type="text" name="password">
+                        </div>
+                        <p><small id="lblpassword" class="text-danger p-1"></small></p>
+                    </div>
+                </form>
+            </div>
 
 <!--                <div>
                     <button class="btn-danger">Delete</button>

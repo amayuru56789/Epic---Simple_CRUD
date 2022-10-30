@@ -9,6 +9,7 @@ import com.mycompany.simplecrud.bo.RegistrationBo;
 import com.mycompany.simplecrud.dto.RegistrationDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -119,8 +120,42 @@ public class RegistrationServlet extends HttpServlet {
     
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException{
-        System.out.println("Amayuru");
+        resp.setContentType("application/json");
+        
+        //System.out.println("Amayuru");
         PrintWriter writer = resp.getWriter();
+        
+        /*get user information from json Request Using JsonReader */
+        JsonReader reader = Json.createReader(req.getReader());
+        JsonObject jsonObject = reader.readObject();
+        String userID = jsonObject.getString("userID");
+        String userName = jsonObject.getString("userName");
+        String address = jsonObject.getString("address");
+        String email = jsonObject.getString("email");
+        String contact = jsonObject.getString("contact");
+        String password = jsonObject.getString("password");
+        /*System.out.println(userID+" "+userName+" "+address+" "+email);*/
+        
+        RegistrationDTO registrationDTO = new RegistrationDTO(userID, userName, address, email, contact, password);
+        try {
+            if (registrationBo.updateUser(registrationDTO)){
+                JsonObjectBuilder response = Json.createObjectBuilder();
+                response.add("status", 200);
+                response.add("message", "Successfuly Updated");
+                response.add("data", "");
+                writer.print(response.build());
+            }else{
+                JsonObjectBuilder response = Json.createObjectBuilder();
+                response.add("status", 500);
+                response.add("message", "Can't update user");
+                response.add("data", "");
+                writer.print(response.build());
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(RegistrationServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(RegistrationServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }
     

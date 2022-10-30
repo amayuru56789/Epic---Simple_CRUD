@@ -26,7 +26,7 @@ $("#btnLog").click(function (){
             console.log(res);
             if (res.status==200){
                 alert("Success");
-                window.location = "SignUp.jsp"
+                window.location = "ViewUser.jsp"
             }else{
                 alert("User name or password incorrect");
             }
