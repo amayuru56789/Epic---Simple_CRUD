@@ -161,8 +161,33 @@ public class RegistrationServlet extends HttpServlet {
     
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws IOException{
-        System.out.println("Amayuru");
+        resp.setContentType("application/json");
+        
+        //get userID Using getParameter Method
+        String userID = req.getParameter("userID");
+        System.out.println(userID);
+        
+        //System.out.println("Amayuru");
         PrintWriter writer = resp.getWriter();
+        try {
+            if (registrationBo.deleteUser(userID)){
+                JsonObjectBuilder response = Json.createObjectBuilder();
+                response.add("status", 200);
+                response.add("message", "Successfuly deleted...");
+                response.add("data", "");
+                writer.print(response.build());
+            }else{
+                JsonObjectBuilder response = Json.createObjectBuilder();
+                response.add("status", 500);
+                response.add("message", "Wrong ID inserted...");
+                response.add("data", "");
+                writer.print(response.build());
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(RegistrationServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(RegistrationServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }
 }
