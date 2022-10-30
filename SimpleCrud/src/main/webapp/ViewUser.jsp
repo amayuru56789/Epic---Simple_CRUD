@@ -1,0 +1,96 @@
+<%-- 
+    Document   : ViewUser
+    Created on : 30-Oct-2022, 08:26:01
+    Author     : indee
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css"/>
+        <title>RegistrationViews Page</title>
+    </head>
+    <body>
+        <section class="container">
+
+        <div class="rounded-3 p-3" style="background-color: #DDE4F0; margin-top: 30px; height: 85vh">
+            <h1 class="text-lg-start mb-3"><i class="fas fa-users"></i>Registration details</h1>
+
+            <div class="row align-items-start pb-3">
+                <div class="col-4">
+                    <h4>Search user</h4>
+                    <div class="input-group mb-3 style=height: 10px">
+                        <input type="text" class="form-control" placeholder="Input ID Here" aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <button class="btn btn-success" type="button" id="button-addon2">
+                            <i class="bi bi-search m-2"></i>Search</button>
+                    </div>
+                </div>
+
+<!--                <div>
+                    <button class="btn-danger">Delete</button>
+                    <button class="btn-primary">Details</button>
+                    <button class="btn-success">Clear</button>
+                </div>-->
+            </div>
+
+            <div class="row align-items-end">
+                <div class="col-5">
+                    <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                    <button type="button" class="btn btn-secondary btn-sm">Update</button>
+                </div>
+            </div>
+
+            <div class="row align-items-center">
+                <div class="col-12 mt-2">
+                    <table class="table table-dark table-striped table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th scope="col">User ID</th>
+                            <th scope="col">User Name</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">email</th>
+                            <th scope="col">contact</th>
+                            <th scope="col">password</th>
+                        </tr>
+                        </thead>
+
+                        <tbody id="userTable">
+                        <tr>
+                            <td>U003</td>
+                            <td>Malitha</td>
+                            <td>Panadura</td>
+                            <td>hello</td>
+                            <td>hello</td>
+                            <td>hello</td>
+                        </tr>
+                        <tr>
+                            <td>U004</td>
+                            <td>Kamal</td>
+                            <td>Galle</td>
+                            <td>hello</td>
+                            <td>hello</td>
+                            <td>hello</td>
+                        </tr>
+                        <tr>
+                            <td>U005</td>
+                            <td>Amayuru</td>
+                            <td>Panadura</td>
+                            <td>hello</td>
+                            <td>hello</td>
+                            <td>hello</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <script src="assets/jQuery/jquery-3.6.0.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="controller/ViewController.js"></script>    
+    </body>
+</html>

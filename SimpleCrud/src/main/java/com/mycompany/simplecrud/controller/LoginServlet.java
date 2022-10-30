@@ -36,6 +36,7 @@ public class LoginServlet extends HttpServlet{
 
     LoginBo loginBo = new LoginBo();
     
+    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("application/json");
         try {
