@@ -58,9 +58,10 @@
                     
                     <div class="card-footer">
                         <div class="d-flex justify-content-center links">
-                            IF You Don't have an Account?
+                            IF You Don't have an Account ?
+                            <a href="SignUp.jsp">Register</a>
                         </div>
-                        <div class="rights">
+                        <div class="rights" style="position: relative; top: 0px">
                             <small>Created By AVC</small>
                         </div>
                         <div class="lines">

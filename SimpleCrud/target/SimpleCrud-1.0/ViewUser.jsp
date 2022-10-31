@@ -85,14 +85,14 @@
 
             <div class="row align-items-end">
                 <div class="col-5">
-                    <button type="button" class="btn btn-danger btn-sm">Delete</button>
-                    <button type="button" class="btn btn-secondary btn-sm">Update</button>
+                    <button type="button" id="btnDelete" class="btn btn-danger btn-sm">Delete</button>
+                    <button type="button" id="btnUpdate" class="btn btn-secondary btn-sm">Update</button>
                 </div>
             </div>
 
             <div class="row align-items-center">
                 <div class="col-12 mt-2">
-                    <table class="table table-dark table-striped table-bordered table-hover">
+                    <table class="table table-dark table-striped table-bordered table-hover" id="table">
                         <thead>
                         <tr>
                             <th scope="col">User ID</th>
@@ -105,7 +105,7 @@
                         </thead>
 
                         <tbody id="userTable">
-                        <tr>
+<!--                        <tr>
                             <td>U003</td>
                             <td>Malitha</td>
                             <td>Panadura</td>
@@ -129,7 +129,7 @@
                             <td>hello</td>
                             <td>hello</td>
                         </tr>
-                        </tbody>
+                        </tbody>-->
                     </table>
                 </div>
             </div>
@@ -140,5 +140,6 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="controller/ViewController.js"></script>    
+    <script src="controller/tableClick.js"></script>
     </body>
 </html>
