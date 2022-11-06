@@ -10,6 +10,8 @@ import com.mycompany.simplecrud.dto.RegistrationDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.math.BigDecimal;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -92,6 +94,31 @@ public class RegistrationServlet extends HttpServlet {
         String email = obj.getString("email");
         String contact = obj.getString("contact");
         String password = obj.getString("password");
+//        String encryptedpassword = null;  
+//        
+//        try {
+//            /* MessageDigest instance for MD5. */  
+//            MessageDigest m = MessageDigest.getInstance("MD5");
+//            
+//            /* Add plain-text password bytes to digest using MD5 update() method. */  
+//            m.update(password.getBytes());  
+//            
+//            /* Convert the hash value into bytes */   
+//            byte[] bytes = m.digest(); 
+//            
+//            /* The bytes array has bytes in decimal form. Converting it into hexadecimal format. */  
+//            StringBuilder s = new StringBuilder();  
+//            for(int i=0; i< bytes.length ;i++) {  
+//                s.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));  
+//            }  
+//            /* Complete hashed password in hexadecimal format */  
+//            encryptedpassword = s.toString();  
+//        } catch (NoSuchAlgorithmException ex) {
+//            Logger.getLogger(RegistrationServlet.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        /* Display the unencrypted and encrypted passwords. */  
+//        System.out.println("Plain-text password: " + password);  
+//        System.out.println("Encrypted password using MD5: " + encryptedpassword);  
         
         RegistrationDTO registrationDTO = new RegistrationDTO(userID,userName,address,email,contact,password);
         try {

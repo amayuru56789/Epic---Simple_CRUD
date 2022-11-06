@@ -24,6 +24,7 @@ function registrationUser(){
         contact: contact,
         password: password
     }
+    console.log(user.userName+" "+user.password);
     
     //var data = $("#registerForm").serialize(); //get information txtFields using form data
     /*console.log(data);*/

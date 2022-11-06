@@ -8,7 +8,8 @@ CREATE TABLE IF NOT EXISTS Registration(
 	address VARCHAR(25) NOT NULL,
 	email VARCHAR(18),
 	contact VARCHAR(24),
-	password VARCHAR(15) NOT NULL,
+	password VARCHAR(65) NOT NULL,
+	confirmationPassword VARCHAR(65) NOT NULL,
 	CONSTRAINT PRIMARY KEY (userID)	
 ); 
 
@@ -16,6 +17,6 @@ SHOW TABLES;
 DESC Registration;
 
 INSERT INTO Registration VALUES
-('U001','Amayuru','Matugama','indeewara@','+94769689591','123');
+('U001','Amayuru','Matugama','indeewara@gmail.com','0769689591','12345','12345');
 
 SELECT * FROM Registration;

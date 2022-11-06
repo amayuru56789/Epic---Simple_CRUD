@@ -10,6 +10,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css"/>
+<!--        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css"/>-->
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
         <title>RegistrationViews Page</title>
     </head>
     <body>
@@ -60,7 +62,7 @@
                         <p><small id="lblemail" class="text-danger p-1"></small></p>
                     </div>
                     <div class="col">
-                        <caption>Email:</caption>
+                        <caption>Contact:</caption>
                         <div class="col-4">
                             <input id="txtContact" class="form-control " type="text" name="contact">
                         </div>
@@ -69,9 +71,16 @@
                     <div class="col">
                         <caption>Password:</caption>
                         <div class="col-4">
-                            <input id="txtPassword" class="form-control " type="text" name="password">
+                            <input id="txtPassword" class="form-control " type="password" name="password">
                         </div>
                         <p><small id="lblpassword" class="text-danger p-1"></small></p>
+                    </div>
+                    <div class="col">
+                        <caption>Confirmation Password:</caption>
+                        <div class="col-4">
+                            <input id="txtConfirmationPassword" class="form-control " type="password" name="password">
+                        </div>
+                        <p><small id="lblconfirmationpassword" class="text-danger p-1"></small></p>
                     </div>
                 </form>
             </div>
@@ -141,5 +150,14 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="controller/ViewController.js"></script>    
     <script src="controller/tableClick.js"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#table').DataTable();
+        });
+    </script>
     </body>
 </html>

@@ -181,7 +181,17 @@
                                 <div class="cols-sm-10">
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                        <input type="text" class="form-control" name="name" id="txtpassword" placeholder="Enter your Password">
+                                        <input type="password" class="form-control" name="name" id="txtpassword" placeholder="Enter your Password">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="name" class="cols-sm-2 control-label">Confirmation Password</label>
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                        <input type="password" class="form-control" name="name" id="txtconfirmationpassword" placeholder="Enter your ConfirmationPassword">
                                     </div>
                                 </div>
                             </div>
