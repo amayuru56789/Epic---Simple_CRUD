@@ -35,10 +35,12 @@ function registrationUser(){
        data:JSON.stringify(user), //if we send data with the request
        success:function (res){
            if (res.status==200){
-               alert(res.message);
+               //alert(res.message);
                //loadAllCustomers();
+               swal("Operation success!", "You clicked the button!", "success");
            }else {
-               alert(res.data);
+               swal("Operation failed!", "You clicked the button!", "error");
+               //alert(res.data);
            }
            /*console.log(res.message);*/
        },

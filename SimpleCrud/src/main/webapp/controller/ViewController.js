@@ -68,10 +68,12 @@ function updateUser() {
           success:function (res){
               /*console.log(res);*/
               if (res.status==200){
-                  alert(res.message);
+                  swal("Successfully Update the User!", "You clicked the button!", "success");
+                  //alert(res.message);
                   loadAllUsers();
               }else if (res.status==400){
-                  alert(res.message);
+                  swal("Failed to Update the User!", "You clicked the button!", "error");
+                  ///alert(res.message);
 
               }else {
                   alert(res.data);
@@ -144,10 +146,26 @@ let userID = $("#txtUserId").val();
         method: "DELETE",
         success: function (resp) {
             if (resp.status == 200) {
-                alert("Successfully deleted the User");
+                swal({
+                title: "Are you sure?",
+                text: "Once deleted, this operation can't be reverted!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+                })
+//                .then((willDelete) => {
+//                    if (willDelete) {
+//                        swal("Done! Your file has been deleted!", {
+//                        icon: "success",
+//                    });
+//                    } else {
+//                        swal("Delete operation is cancelled!");
+//                    }
+//                });
+                //alert("Successfully deleted the User");
                 loadAllUsers();
             } else {
-                alert("Can't delete the User");
+                //alert("Can't delete the User");
             }
         }
     });

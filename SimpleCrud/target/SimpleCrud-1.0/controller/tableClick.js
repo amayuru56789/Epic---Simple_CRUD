@@ -4,6 +4,11 @@
  * and open the template in the editor.
  */
 
+//$("#btnClear").click(function (){
+//    console.log("ok");
+//    clearFields();
+//});
+
 $("#table").click(function (e) {
     let userId = $(e.target).closest('tr').find('td').eq(0).html();
     let userName = $(e.target).closest('tr').find('td').eq(1).html();
@@ -19,3 +24,13 @@ $("#table").click(function (e) {
     $("#txtContact").val(contact);
     $("#txtPassword").val(password);
 });
+
+///*-----------------clearFields---------------*/
+//function clearFields(){
+//    $("#txtUserId").val(" ");
+//    $("#txtUserName").val(" ");
+//    $("#txtUserAddress").val(" ");
+//    $("#txtEmail").val(" ");
+//    $("#txtContact").val(" ");
+//    $("#txtPassword").val(" ");
+//}

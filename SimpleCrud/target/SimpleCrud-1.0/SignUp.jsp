@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="assets/boostrap/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="assets/fonts/css/all.css"/>
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <link rel="stylesheet" type="text/css" href="https://common.olemiss.edu/_js/sweet-alert/sweet-alert.css">
         <style>
             .container{
                 height: 100%;
@@ -208,6 +209,7 @@
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="assets/validation/validation.js"></script>
+        <script src="https://common.olemiss.edu/_js/sweet-alert/sweet-alert.min.js"></script>
         <script src="controller/SignUpController.js"></script>
     </body>
 </html>

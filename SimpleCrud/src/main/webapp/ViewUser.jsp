@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css"/>
 <!--        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css"/>-->
         <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
+        <link rel="stylesheet" type="text/css" href="https://common.olemiss.edu/_js/sweet-alert/sweet-alert.css">
         <title>RegistrationViews Page</title>
     </head>
     <body>
@@ -96,6 +97,7 @@
                 <div class="col-5">
                     <button type="button" id="btnDelete" class="btn btn-danger btn-sm">Delete</button>
                     <button type="button" id="btnUpdate" class="btn btn-secondary btn-sm">Update</button>
+                    <button type="button" id="btnClear" class="btn-secondary btn-sm">Clear</button>
                 </div>
             </div>
 
@@ -148,8 +150,25 @@
     <script src="assets/jQuery/jquery-3.6.0.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://common.olemiss.edu/_js/sweet-alert/sweet-alert.min.js"></script>
     <script src="controller/ViewController.js"></script>    
     <script src="controller/tableClick.js"></script>
+    <script>
+        $("#btnClear").click(function (){
+            console.log("ok");
+            clearFields();
+        });
+        
+        /*-----------------clearFields---------------*/
+        function clearFields(){
+            $("#txtUserId").val(" ");
+            $("#txtUserName").val(" ");
+            $("#txtUserAddress").val(" ");
+            $("#txtEmail").val(" ");
+            $("#txtContact").val(" ");
+            $("#txtPassword").val(" ");
+        }
+    </script>
     
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
