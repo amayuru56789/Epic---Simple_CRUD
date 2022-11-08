@@ -67,11 +67,11 @@ function updateUser() {
           data:JSON.stringify(userOb) , //convert valid json String
           success:function (res){
               /*console.log(res);*/
-              if (res.status==200){
+              if (res.status===200){
                   swal("Successfully Update the User!", "You clicked the button!", "success");
                   //alert(res.message);
                   loadAllUsers();
-              }else if (res.status==400){
+              }else if (res.status===400){
                   swal("Failed to Update the User!", "You clicked the button!", "error");
                   ///alert(res.message);
 
@@ -89,7 +89,7 @@ function updateUser() {
     
 $("#btnUpdate").click(function (){
    updateUser();
-   loadAllUsers();
+   //loadAllUsers();
 });    
 
  /*------------------------------deleteUser function for javaEE app------------------------------------*/
@@ -145,7 +145,7 @@ let userID = $("#txtUserId").val();
         url: "http://localhost:8084/SimpleCrud/Registration?userID=" + userID,
         method: "DELETE",
         success: function (resp) {
-            if (resp.status == 200) {
+            if (resp.status === 200) {
                 swal({
                 title: "Are you sure?",
                 text: "Once deleted, this operation can't be reverted!",
@@ -153,19 +153,20 @@ let userID = $("#txtUserId").val();
                 buttons: true,
                 dangerMode: true,
                 })
-//                .then((willDelete) => {
-//                    if (willDelete) {
-//                        swal("Done! Your file has been deleted!", {
-//                        icon: "success",
-//                    });
-//                    } else {
-//                        swal("Delete operation is cancelled!");
-//                    }
-//                });
+                .then((willDelete) => {
+                    if (willDelete) {
+                        swal("Done! Your file has been deleted!", {
+                        icon: "success",
+                    });
+                    } else {
+                        swal("Delete operation is cancelled!");
+                    }
+                });
                 //alert("Successfully deleted the User");
                 loadAllUsers();
             } else {
                 //alert("Can't delete the User");
+                swal("Can't delete the User!", "You clicked the button!", "error");
             }
         }
     });

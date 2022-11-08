@@ -10,6 +10,8 @@ CREATE TABLE IF NOT EXISTS Registration(
 	contact VARCHAR(24),
 	password VARCHAR(65) NOT NULL,
 	confirmationPassword VARCHAR(65) NOT NULL,
+	createTime VARCHAR(50),
+	lastUpdateTime VARCHAR(50),
 	CONSTRAINT PRIMARY KEY (userID),
 	CONSTRAINT UNIQUE KEY (userName),
 	CONSTRAINT UNIQUE KEY (email),

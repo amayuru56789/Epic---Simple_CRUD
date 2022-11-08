@@ -6,6 +6,7 @@
 $("#btnSave").click(function (){
     //console.log("Hello"); 
     registrationUser();
+    clearFields();
 });
 
 function registrationUser(){
@@ -23,7 +24,7 @@ function registrationUser(){
         email: email,
         contact: contact,
         password: password
-    }
+    };
     console.log(user.userName+" "+user.password);
     
     //var data = $("#registerForm").serialize(); //get information txtFields using form data
@@ -34,9 +35,10 @@ function registrationUser(){
        method: "POST",
        data:JSON.stringify(user), //if we send data with the request
        success:function (res){
-           if (res.status==200){
+           if (res.status===200){
                //alert(res.message);
                //loadAllCustomers();
+               clearFields();
                swal("Operation success!", "You clicked the button!", "success");
            }else {
                swal("Operation failed!", "You clicked the button!", "error");
@@ -49,6 +51,16 @@ function registrationUser(){
         }
     });
 }
+
+/*-----------------clearFields---------------*/
+        function clearFields(){
+            $("#txtUserId").val(" ");
+            $("#txtUserName").val(" ");
+            $("#txtUserAddress").val(" ");
+            $("#txtEmail").val(" ");
+            $("#txtContact").val(" ");
+            $("#txtPassword").val(" ");
+        }
 
 /*------------ validation --------------*/
 //

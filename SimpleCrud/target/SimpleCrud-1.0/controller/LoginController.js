@@ -12,7 +12,7 @@ $("#btnLog").click(function (){
     obj = {
         userID:userID,
         password:password
-    }
+    };
 
 //invoked ajax
     $.ajax({
@@ -24,11 +24,13 @@ $("#btnLog").click(function (){
         //dataType: json,
         success: function (res){
             console.log(res);
-            if (res.status==200){
-                alert("Success");
+            if (res.status===200){
+                //alert("Success");
+                swal("Login success!", "You clicked the button!", "success");
                 window.location = "ViewUser.jsp"
             }else{
-                alert("User name or password incorrect");
+                swal("User name or password incorrect!", "You clicked the button!", "error");
+                //alert("User name or password incorrect");
             }
         }
     });
