@@ -7,6 +7,11 @@ package com.mycompany.simplecrud.dao;
 
 import com.mycompany.simplecrud.db.DbConnection;
 import com.mycompany.simplecrud.model.Registration;
+import com.mycompany.simplecrud.util.Encryption;
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -17,6 +22,9 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 
 /**
  *
@@ -24,7 +32,13 @@ import java.util.logging.Logger;
  */
 public class RegistrationDao {
     
-    public boolean registerUser(Registration registration) throws ClassNotFoundException{
+    Encryption en;
+
+    public RegistrationDao() throws UnsupportedEncodingException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeySpecException {
+        this.en = new Encryption();
+    }
+    
+    public boolean registerUser(Registration registration) throws ClassNotFoundException, InvalidKeyException, UnsupportedEncodingException, IllegalBlockSizeException, BadPaddingException{
       
         try {
             LocalDateTime time = LocalDateTime.now();  
@@ -34,13 +48,14 @@ public class RegistrationDao {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/epic", "root", "1234");
             
+            String passwordEncrypt = en.encrypt(registration.getPassword());
             PreparedStatement pstm = con.prepareStatement("insert into Registration values(?,?,?,?,?,?,?,?)");
             pstm.setObject(1, registration.getUserID());
             pstm.setObject(2, registration.getUserName());
             pstm.setObject(3, registration.getAddress());
             pstm.setObject(4, registration.getEmail());
             pstm.setObject(5, registration.getContact());
-            pstm.setObject(6, registration.getPassword());
+            pstm.setObject(6, passwordEncrypt);
             pstm.setObject(7, formatDateTime);
             pstm.setObject(8, "");
             if (pstm.executeUpdate()>0){
@@ -77,7 +92,7 @@ public class RegistrationDao {
         return load;
     }
     
-    public boolean updateUser(Registration registration) throws ClassNotFoundException, SQLException{
+    public boolean updateUser(Registration registration) throws ClassNotFoundException, SQLException, InvalidKeyException, UnsupportedEncodingException, IllegalBlockSizeException, BadPaddingException{
         Registration searchUser = getAllRegistrationDetails(registration.getUserID());
         String createTime = searchUser.getCreateTime();
         
@@ -85,13 +100,14 @@ public class RegistrationDao {
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/epic", "root", "1234");
         LocalDateTime time = LocalDateTime.now();  
         DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");  
-        String lastDateTime = time.format(format);  
+        String lastDateTime = time.format(format);
+        String passwordEncrypt = en.encrypt(registration.getPassword());
         PreparedStatement pstm = con.prepareStatement("update Registration set userName=?, address=?, email=?, contact=?, password=?, createTime=?, lastUpdateTime=? where userID=?");
         pstm.setObject(1, registration.getUserName());
         pstm.setObject(2, registration.getAddress());
         pstm.setObject(3, registration.getEmail());
         pstm.setObject(4, registration.getContact());
-        pstm.setObject(5, registration.getPassword());
+        pstm.setObject(5, passwordEncrypt);
         pstm.setObject(6, createTime);
         pstm.setObject(7, lastDateTime);
         pstm.setObject(8, registration.getUserID());
