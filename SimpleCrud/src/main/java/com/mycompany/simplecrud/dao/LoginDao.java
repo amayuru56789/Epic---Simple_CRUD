@@ -24,11 +24,11 @@ import javax.crypto.NoSuchPaddingException;
  * @author indee
  */
 public class LoginDao {
-    Encryption encryption;
+    Encryption encryption = new Encryption();
 
-    public LoginDao() throws UnsupportedEncodingException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeySpecException {
-        encryption = new Encryption();
-    }
+//    public LoginDao() throws UnsupportedEncodingException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeySpecException {
+//        encryption = new Encryption();
+//    }
     
     public boolean checkEqualityUser(String userID, String password) throws ClassNotFoundException, SQLException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException{
         Class.forName("com.mysql.cj.jdbc.Driver");

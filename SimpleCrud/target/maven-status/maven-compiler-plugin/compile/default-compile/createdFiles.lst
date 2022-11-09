@@ -1,1 +1,7 @@
+com\mycompany\simplecrud\util\PassBasedEnc.class
+com\mycompany\simplecrud\model\Registration.class
+com\mycompany\simplecrud\util\Test.class
+com\mycompany\simplecrud\controller\Test.class
+com\mycompany\simplecrud\db\DbConnection.class
+com\mycompany\simplecrud\util\ProtectedConfigFile.class
 com\mycompany\simplecrud\dto\RegistrationDTO.class

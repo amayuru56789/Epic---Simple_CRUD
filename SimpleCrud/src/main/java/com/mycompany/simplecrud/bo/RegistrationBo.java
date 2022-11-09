@@ -8,9 +8,13 @@ package com.mycompany.simplecrud.bo;
 import com.mycompany.simplecrud.dao.RegistrationDao;
 import com.mycompany.simplecrud.dto.RegistrationDTO;
 import com.mycompany.simplecrud.model.Registration;
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidKeyException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
 
 /**
  *
@@ -21,7 +25,7 @@ public class RegistrationBo {
     //    create object in DAO layer
     RegistrationDao registrationDao = new RegistrationDao();
 
-    public boolean registrationUser(RegistrationDTO registrationDTO) throws ClassNotFoundException{
+    public boolean registrationUser(RegistrationDTO registrationDTO) throws ClassNotFoundException, InvalidKeyException, UnsupportedEncodingException, IllegalBlockSizeException, BadPaddingException{
         return registrationDao.registerUser(new Registration(
                 registrationDTO.getUserID(),
                 registrationDTO.getUserName(),
@@ -51,7 +55,7 @@ public class RegistrationBo {
 
     }
     
-    public boolean updateUser(RegistrationDTO registrationDTO) throws ClassNotFoundException, SQLException{
+    public boolean updateUser(RegistrationDTO registrationDTO) throws ClassNotFoundException, SQLException, InvalidKeyException, UnsupportedEncodingException, IllegalBlockSizeException, BadPaddingException{
         return registrationDao.updateUser(new Registration(
                 registrationDTO.getUserID(),
                 registrationDTO.getUserName(),

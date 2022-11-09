@@ -9,7 +9,9 @@ import com.mycompany.simplecrud.bo.RegistrationBo;
 import com.mycompany.simplecrud.dto.RegistrationDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
+import java.security.InvalidKeyException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
@@ -18,6 +20,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
 import javax.json.Json;
 import javax.json.JsonArrayBuilder;
 import javax.json.JsonObject;
@@ -79,7 +83,7 @@ public class RegistrationServlet extends HttpServlet {
     }
     
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException{
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, UnsupportedEncodingException{
         resp.setContentType("application/json");
 //        ServletContext servletContext = req.getServletContext();
 //        BasicDataSource bds = (BasicDataSource) servletContext.getAttribute("bds");
@@ -141,12 +145,18 @@ public class RegistrationServlet extends HttpServlet {
             //con.close();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(RegistrationServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InvalidKeyException ex) {
+            Logger.getLogger(RegistrationServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalBlockSizeException ex) {
+            Logger.getLogger(RegistrationServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (BadPaddingException ex) {
+            Logger.getLogger(RegistrationServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
     
     @Override
-    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException{
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException, UnsupportedEncodingException{
         resp.setContentType("application/json");
         
         //System.out.println("Amayuru");
@@ -181,6 +191,12 @@ public class RegistrationServlet extends HttpServlet {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(RegistrationServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
+            Logger.getLogger(RegistrationServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InvalidKeyException ex) {
+            Logger.getLogger(RegistrationServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalBlockSizeException ex) {
+            Logger.getLogger(RegistrationServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (BadPaddingException ex) {
             Logger.getLogger(RegistrationServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         

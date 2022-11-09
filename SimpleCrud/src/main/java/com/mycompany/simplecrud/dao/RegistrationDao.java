@@ -32,11 +32,11 @@ import javax.crypto.NoSuchPaddingException;
  */
 public class RegistrationDao {
     
-    Encryption en;
+    Encryption en = new Encryption();
 
-    public RegistrationDao() throws UnsupportedEncodingException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeySpecException {
-        this.en = new Encryption();
-    }
+//    public RegistrationDao() throws UnsupportedEncodingException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeySpecException {
+//        this.en = new Encryption();
+//    }
     
     public boolean registerUser(Registration registration) throws ClassNotFoundException, InvalidKeyException, UnsupportedEncodingException, IllegalBlockSizeException, BadPaddingException{
       
@@ -101,13 +101,13 @@ public class RegistrationDao {
         LocalDateTime time = LocalDateTime.now();  
         DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");  
         String lastDateTime = time.format(format);
-        String passwordEncrypt = en.encrypt(registration.getPassword());
+        //String passwordEncrypt = en.encrypt(registration.getPassword());
         PreparedStatement pstm = con.prepareStatement("update Registration set userName=?, address=?, email=?, contact=?, password=?, createTime=?, lastUpdateTime=? where userID=?");
         pstm.setObject(1, registration.getUserName());
         pstm.setObject(2, registration.getAddress());
         pstm.setObject(3, registration.getEmail());
         pstm.setObject(4, registration.getContact());
-        pstm.setObject(5, passwordEncrypt);
+        pstm.setObject(5, registration.getPassword());
         pstm.setObject(6, createTime);
         pstm.setObject(7, lastDateTime);
         pstm.setObject(8, registration.getUserID());
