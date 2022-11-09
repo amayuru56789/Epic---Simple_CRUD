@@ -76,7 +76,8 @@ function updateUser() {
                   ///alert(res.message);
 
               }else {
-                  alert(res.data);
+                  //alert(res.data);
+                  swal("Failed to Update the User!", "You clicked the button!", "error");
               }
               /*alert(res);
               loadAllUsers();*/
@@ -152,16 +153,19 @@ let userID = $("#txtUserId").val();
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
-                })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        swal("Done! Your file has been deleted!", {
-                        icon: "success",
-                    });
-                    } else {
-                        swal("Delete operation is cancelled!");
-                    }
                 });
+                swal("Done! Your file has been deleted!", "You clicked the button!",
+                        "success",
+                );
+//                .then((willDelete) => {
+//                    if (willDelete) {
+//                        swal("Done! Your file has been deleted!", {
+//                        icon: "success",
+//                    });
+//                    } else {
+//                        swal("Delete operation is cancelled!");
+//                    }
+//                });
                 //alert("Successfully deleted the User");
                 loadAllUsers();
             } else {

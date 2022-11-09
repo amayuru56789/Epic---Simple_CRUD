@@ -30,12 +30,12 @@ public class LoginDao {
 //        encryption = new Encryption();
 //    }
     
-    public boolean checkEqualityUser(String userID, String password) throws ClassNotFoundException, SQLException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException{
+    public boolean checkEqualityUser(String userName, String password) throws ClassNotFoundException, SQLException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException{
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/epic", "root", "1234");
         //String query = "select * from Registration where userID=? && password=?";
-        PreparedStatement pstm = con.prepareStatement("select * from Registration where userID=? ");
-        pstm.setObject(1, userID);
+        PreparedStatement pstm = con.prepareStatement("select * from Registration where userName=? ");
+        pstm.setObject(1, userName);
         //pstm.setObject(2, password);
         ResultSet rst = pstm.executeQuery();
         

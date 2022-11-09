@@ -16,6 +16,7 @@ function registrationUser(){
     let email = $("#txtemail").val();
     let contact = $("#txtcontact").val();
     let password = $("#txtpassword").val();
+    //let confirmationPassword = $("#txtconfirmationpassword").val();
     //console.log(userID+" "+userName+" "+address+" "+email+" "+contact+" "+password);
     user = {
         userID: userID,
@@ -24,6 +25,7 @@ function registrationUser(){
         email: email,
         contact: contact,
         password: password
+        //confirmationPassword: confirmationPassword
     };
     console.log(user.userName+" "+user.password);
     

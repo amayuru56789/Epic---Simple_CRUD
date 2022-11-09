@@ -17,6 +17,7 @@ public class Registration {
     private String email;
     private String contact;
     private String password;
+    private String confirmationPassword;
     private String createTime;
     private String lastUpdateTime;
 
@@ -30,6 +31,7 @@ public class Registration {
         this.email = email;
         this.contact = contact;
         this.password = password;
+        //this.confirmationPassword = confirmationPassword;
     }
 
     public Registration(String userID, String userName, String address, String email, String contact, String password, String createTime, String lastUpdateTime) {
@@ -39,6 +41,7 @@ public class Registration {
         this.email = email;
         this.contact = contact;
         this.password = password;
+        //this.confirmationPassword = confirmationPassword;
         this.createTime = createTime;
         this.lastUpdateTime = lastUpdateTime;
     }
@@ -90,6 +93,14 @@ public class Registration {
     public void setPassword(String password) {
         this.password = password;
     }
+    
+//    public String getConfirmationPassword() {
+//        return confirmationPassword;
+//    }
+//
+//    public void setConfirmationPassword(String confirmationPassword) {
+//        this.confirmationPassword = confirmationPassword;
+//    }
     
     public String getCreateTime(){
         return createTime;

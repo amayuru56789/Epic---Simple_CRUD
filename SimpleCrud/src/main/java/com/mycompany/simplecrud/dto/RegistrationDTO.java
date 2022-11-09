@@ -16,6 +16,7 @@ public class RegistrationDTO {
     private String email;
     private String contact;
     private String password;
+    //private String confirmationPassword;
 
     public RegistrationDTO() {
     }
@@ -27,6 +28,7 @@ public class RegistrationDTO {
         this.email = email;
         this.contact = contact;
         this.password = password;
+        //this.confirmationPassword = confirmationPassword;
     }
 
     public String getUserID() {
@@ -76,6 +78,14 @@ public class RegistrationDTO {
     public void setPassword(String password) {
         this.password = password;
     }
+    
+//    public String getConfirmationPassword() {
+//        return confirmationPassword;
+//    }
+//
+//    public void setConfirmationPassword(String confirmationPassword) {
+//        this.confirmationPassword = confirmationPassword;
+//    }
 
     @Override
     public String toString() {

@@ -4,13 +4,13 @@
  * and open the template in the editor.
  */
 $("#btnLog").click(function (){
-//   console.log("Hello"); 
-    var userID = $("#userID").val();
+    //console.log("Hello"); 
+    var userName = $("#userID").val();
     var password = $("#password").val();
     
-//    console.log(userName+" :"+password);
+    //console.log(userName+" :"+password);
     obj = {
-        userID:userID,
+        userName:userName,
         password:password
     };
 

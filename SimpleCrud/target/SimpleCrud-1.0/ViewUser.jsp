@@ -18,7 +18,7 @@
     <body>
         <section class="container">
 
-        <div class="rounded-3 p-3" style="background-color: #DDE4F0; margin-top: 30px; height: 85vh">
+        <div class="rounded-3 p-3" style="background-color: #DDE4F0; margin-top: 30px; height: 187vh">
             <h1 class="text-lg-start mb-3"><i class="fas fa-users"></i>Registration details</h1>
 
             <div class="row align-items-start pb-3">

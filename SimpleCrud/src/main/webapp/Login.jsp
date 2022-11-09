@@ -17,6 +17,23 @@
 <!--        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
         <link rel="stylesheet" type="text/css" href="https://common.olemiss.edu/_js/sweet-alert/sweet-alert.css">
+        <style>
+            .divider:after,
+            .divider:before {
+                content: "";
+                flex: 1;
+                height: 1px;
+                background: #eee;
+            }
+            .h-custom {
+                height: calc(100% - 73px);
+            }
+            @media (max-width: 450px) {
+                .h-custom {
+                height: 100%;
+                }
+            }
+        </style>
     </head>
     <body>
         <section class="vh-100">
@@ -50,8 +67,8 @@
           <!-- Username input -->
           <div class="form-outline mb-4">
             <input type="text" id="userID" class="form-control form-control-lg"
-              placeholder="Enter a valid User ID" />
-            <label class="form-label" for="form3Example3">User ID</label>
+              placeholder="Enter a valid User Name" />
+            <label class="form-label" for="form3Example3">User Name</label>
           </div>
 
           <!-- Password input -->
@@ -169,6 +186,41 @@
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://common.olemiss.edu/_js/sweet-alert/sweet-alert.min.js"></script>
-        <script src="controller/LoginController.js"></script>
+<!--        <script src="controller/LoginController.js"></script>-->
+        <script>
+            $("#btnLog").click(function (){
+            console.log("Hello"); 
+            var userName = $("#userID").val();
+            var password = $("#password").val();
+    
+            console.log(userName+" :"+password);
+            obj = {
+                userName:userName,
+                password:password
+            };
+
+            //invoked ajax
+            $.ajax({
+            url: 'http://localhost:8084/SimpleCrud/Login',
+            method: 'POST',
+            //async: true,
+            //data: {"userName":userName,"password":password},
+            data:JSON.stringify(obj),
+            //dataType: json,
+            success: function (res){
+                console.log(res);
+                if (res.status===200){
+                    //alert("Success");
+                    swal("Login success!", "You clicked the button!", "success");
+                    window.location = "ViewUser.jsp"
+                }else{
+                    swal("User name or password incorrect!", "You clicked the button!", "error");
+                    //alert("User name or password incorrect");
+                }
+            }
+        });
+    });
+
+        </script>
     </body>
 </html>
